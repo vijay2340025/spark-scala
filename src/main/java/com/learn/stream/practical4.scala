@@ -1,7 +1,6 @@
 package com.learn.stream
 
 import org.apache.log4j.{Level, Logger}
-import org.apache.spark.SparkConf
 import org.apache.spark.sql.functions.{col, explode, split}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
@@ -9,12 +8,10 @@ object practical4 {
     def main(args: Array[String]): Unit = {
 
         Logger.getLogger("org").setLevel(Level.ERROR)
-        val sparkConf: SparkConf = new SparkConf()
-          .setMaster("local[*]")
-          .setAppName("Structured Streaming")
 
         val spark: SparkSession = SparkSession.builder()
-          .config(sparkConf)
+          .master("local[*]")
+          .appName("Structured Streaming\"")
           .getOrCreate()
 
 
